@@ -1,0 +1,271 @@
+<template>
+  <div>
+    <div class="contact-icons  contact-icons--vertical">
+      <a class="contact-icons__item" href="">
+        <svg class="twit-svg">
+          <use xlink:href="../assets/img/svg-sprite.svg#twitIcon"></use>
+        </svg>
+      </a>
+      <a class="contact-icons__item" href="">
+        <svg class="fb-svg">
+          <use xlink:href="../assets/img/svg-sprite.svg#fbIcon"></use>
+        </svg>
+      </a>
+      <a class="contact-icons__item" href="">
+        <svg class="tg-svg">
+          <use xlink:href="../assets/img/svg-sprite.svg#tgIcon"></use>
+        </svg>
+      </a>
+    </div>
+    <div id="overlay"></div>
+    <!--=====MOBILE FIX BOTTOM MENU ========-->
+    <div class="fix-mobile-menu">
+      <div class="fix-menu-toggle active" id="open-fixMenu">Меню раздела</div>
+      <div class="fix-menu-toggle" id="close-fixMenu"></div>
+      <div class="fix-menu-list">
+        <ul>
+          <li>
+            <a href="#!">Задачи</a>
+          </li>
+          <li>
+            <a href="#!">Аккаунты</a>
+          </li>
+          <li>
+            <a href="#!">Календарь</a>
+          </li>
+          <li>
+            <a href="#!">Обучение</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--=====BLUE LEFT SIDEBAR ========-->
+    <div class="aside-panel">
+      <nuxt-link class="logo" to="/invest">
+        <svg class="logo-svg" width="37" height="48">
+          <use xlink:href="../assets/img/svg-sprite.svg#asideLogo"></use>
+        </svg>
+      </nuxt-link>
+      <div class="aside-panel__menu">
+        <button>
+        <span>
+          <div class="label">
+            <span>1</span>
+          </div>
+          <svg class="play-svg">
+            <use xlink:href="../assets/img/svg-sprite.svg#menu1"></use>
+          </svg>
+        </span>
+          <span>Игры</span>
+        </button>
+        <button>
+        <span>
+          <svg class="job-svg">
+            <use xlink:href="../assets/img/svg-sprite.svg#menu2"></use>
+          </svg>
+        </span>
+          <span>Работа</span>
+        </button>
+        <button>
+        <span>
+          <div class="label">
+            <span>1</span>
+          </div>
+          <svg class="pull-svg">
+            <use xlink:href="../assets/img/svg-sprite.svg#menu3"></use>
+          </svg>
+        </span>
+          <span>Добыча</span>
+        </button>
+        <button>
+        <span>
+          <svg class="ntf-svg">
+            <use xlink:href="../assets/img/svg-sprite.svg#menu4"></use>
+          </svg>
+        </span>
+          <span>NFT</span>
+        </button>
+        <button>
+        <span>
+          <svg class="market-svg">
+            <use xlink:href="../assets/img/svg-sprite.svg#menu5"></use>
+          </svg>
+        </span>
+          <span>Маркет</span>
+        </button>
+        <button class="news-menu-item">
+        <span>
+          <svg class="news-svg">
+            <use xlink:href="../assets/img/svg-sprite.svg#menu6"></use>
+          </svg>
+        </span>
+          <span>Новости</span>
+        </button>
+        <button>
+          <span>&hellip;</span>
+          <span>Еще</span>
+        </button>
+      </div>
+    </div>
+    <!--===========DESKTOP HEADER========-->
+    <header class="header header--desk">
+      <div class="header-content d-flex">
+        <div class="header-left">
+          <div class="mobile-logo">
+            <a href="#!">
+              <svg width="42" height="24">
+                <use xlink:href="../assets/img/svg-sprite.svg#footer-logo"></use>
+              </svg>
+            </a>
+          </div>
+          <div class="custom-select custom-select--lang">
+            <div class="select-icon"></div>
+            <div class="select-field">
+              <input type="text" value="Ru" readonly="readonly" />
+            </div>
+            <div class="select-list">
+              <ul>
+                <li class="current" data-role="Ru">Ru</li>
+                <li data-role="En">En</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="header-center">
+          <div class="header-menu">
+            <ul>
+              <li class="active">
+                <a href="#!">О проекте</a>
+              </li>
+              <li>
+                <a href="#games-catalogy">Игры</a>
+              </li>
+              <li>
+                <a href="#road-map">Road map</a>
+              </li>
+              <li>
+                <a href="#tokenomic">Токеномика</a>
+              </li>
+              <li>
+                <a href="#team">Команда</a>
+              </li>
+              <li>
+                <a href="#hoy-bay">Как купить GINN?</a>
+              </li>
+              <li>
+                <a href="#faq">Часты вопросы</a>
+              </li>
+              <li>
+                <nuxt-link to="/admin">Админка</nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--====LOGOUT=====-->
+        <!--.header-right
+          .login-block
+            .login-block__img
+              img(src="../assets/img/login.png", width="31" alt="alt")
+            button.login-btn(type="button" data-btn="logIn") Войти
+
+          -->
+        <!--====LOGIN=====-->
+        <div class="header-right">
+          <div class="profile-panel">
+            <div class="profile-icon">
+              <div class="icon-notify">
+                <p class="label">
+                  <span>2</span>
+                </p>
+              </div>
+            </div>
+            <div class="profile-persone">
+              <div class="profile-persone__img">
+                <img src="~~/assets/img/ava.png" width="38" alt="ava" />
+              </div>
+              <div class="profile-persone__arrow" id="profile-arrow">
+                <svg width="10" height="6">
+                  <use xlink:href="../assets/img/svg-sprite.svg#iconArr"></use>
+                </svg>
+              </div>
+              <div class="profile-persone__row">
+                <p>0x...263a</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--===========MOBILE HEADER========-->
+    <header class="header header--mob">
+      <div class="header-content d-flex">
+        <div class="header-left">
+          <div class="mobile-logo">
+            <a href="#!">
+              <svg width="42" height="24">
+                <use xlink:href="../assets/img/svg-sprite.svg#footer-logo"></use>
+              </svg>
+            </a>
+            <!--======= выбор языка- продублировано для моб версии ==========-->
+            <div class="custom-select custom-select--lang">
+              <div class="select-icon"></div>
+              <div class="select-field">
+                <input type="text" value="Ru" readonly="readonly" />
+              </div>
+              <div class="select-list">
+                <ul>
+                  <li class="current" data-role="Ru">Ru</li>
+                  <li data-role="En">En</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--====LOGOUT=====-->
+        <!--.header-right
+          .login-block
+            .login-block__img
+              img(src="../assets/img/login.png", width="31" alt="alt")
+            button.login-btn(type="button" data-btn="logIn") Войти
+
+
+          -->
+        <!--====LOGIN=====-->
+        <div class="header-right">
+          <div class="profile-panel">
+            <div class="profile-icon">
+              <div class="icon-notify">
+                <p class="label">
+                  <span>2</span>
+                </p>
+              </div>
+            </div>
+            <div class="profile-persone">
+              <div class="profile-persone__img">
+                <img src="~~/assets/img/ava.png" width="38" alt="ava" />
+              </div>
+              <div class="profile-persone__arrow" id="profile-arrow">
+                <svg width="10" height="6">
+                  <use xlink:href="../assets/img/svg-sprite.svg#iconArr"></use>
+                </svg>
+              </div>
+              <div class="profile-persone__row">
+                <p>0x...263a</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Header"
+}
+</script>
+
+<style scoped>
+
+</style>

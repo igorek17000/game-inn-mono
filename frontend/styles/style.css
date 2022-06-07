@@ -1,0 +1,29 @@
+@import "./modules/colors-helper.css";
+@import "./modules/fonts.css";
+@import "./modules/global.css";
+@import "./modules/font-size-helper.css";
+@import "./modules/reset.css";
+@import "./modules/main.css";
+@import "./modules/styleAdmin.css";
+
+html body {
+  background-color: #161616;
+  color: #000;
+}
+
+html, body, .wrapper, #__nuxt, #__layout {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+body a:hover {
+  opacity: 0.5;
+}
+
+.main {
+  padding: 28px 30px;
+  min-height: 80%;
+}
