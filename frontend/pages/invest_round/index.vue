@@ -253,7 +253,7 @@ export default {
   mixins: [MetamaskMixins],
   components: {
     ClaimDialog: () => import('~~/components/UI/ClaimDialog'),
-    InvestPageTable: () => import('~/components/ui/InvestPageTable')
+    InvestPageTable: () => import('~/components/UI/InvestPageTable')
   },
   computed: {
     ...mapGetters({

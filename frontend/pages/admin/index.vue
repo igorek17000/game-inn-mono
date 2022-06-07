@@ -27,7 +27,7 @@ export default {
   components: {
     CustomButton: () => import('~~/components/UI/CustBtn'),
     ClaimDialog: () => import('~~/components/UI/ClaimDialog'),
-    CustTable: () => import('~/components/ui/AdminPageTable')
+    CustTable: () => import('~/components/UI/AdminPageTable')
   },
   computed: {
     ...mapGetters({
