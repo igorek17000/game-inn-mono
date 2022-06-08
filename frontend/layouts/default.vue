@@ -3,7 +3,7 @@
    <Header />
    <nuxt />
    <Footer />
-   <CustomPayStatusDialog/>
+   <CustomPayStatusDialog />
  </div>
 </template>
 

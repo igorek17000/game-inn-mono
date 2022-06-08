@@ -3,17 +3,17 @@
     <div class="contact-icons  contact-icons--vertical">
       <a class="contact-icons__item" href="">
         <svg class="twit-svg">
-          <use xlink:href="../assets/img/svg-sprite.svg#twitIcon"></use>
+          <use xlink:href="~~/assets/img/svg-sprite.svg#twitIcon"></use>
         </svg>
       </a>
       <a class="contact-icons__item" href="">
         <svg class="fb-svg">
-          <use xlink:href="../assets/img/svg-sprite.svg#fbIcon"></use>
+          <use xlink:href="~~/assets/img/svg-sprite.svg#fbIcon"></use>
         </svg>
       </a>
       <a class="contact-icons__item" href="">
         <svg class="tg-svg">
-          <use xlink:href="../assets/img/svg-sprite.svg#tgIcon"></use>
+          <use xlink:href="~~/assets/img/svg-sprite.svg#tgIcon"></use>
         </svg>
       </a>
     </div>
@@ -53,15 +53,15 @@
             <span>1</span>
           </div>
           <svg class="play-svg">
-            <use xlink:href="../assets/img/svg-sprite.svg#menu1"></use>
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu1"></use>
           </svg>
         </span>
           <span>Игры</span>
         </button>
-        <button>
+        <button>n
         <span>
           <svg class="job-svg">
-            <use xlink:href="../assets/img/svg-sprite.svg#menu2"></use>
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu2"></use>
           </svg>
         </span>
           <span>Работа</span>
@@ -72,7 +72,7 @@
             <span>1</span>
           </div>
           <svg class="pull-svg">
-            <use xlink:href="../assets/img/svg-sprite.svg#menu3"></use>
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu3"></use>
           </svg>
         </span>
           <span>Добыча</span>
@@ -80,7 +80,7 @@
         <button>
         <span>
           <svg class="ntf-svg">
-            <use xlink:href="../assets/img/svg-sprite.svg#menu4"></use>
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu4"></use>
           </svg>
         </span>
           <span>NFT</span>
@@ -88,7 +88,7 @@
         <button>
         <span>
           <svg class="market-svg">
-            <use xlink:href="../assets/img/svg-sprite.svg#menu5"></use>
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu5"></use>
           </svg>
         </span>
           <span>Маркет</span>
@@ -96,15 +96,34 @@
         <button class="news-menu-item">
         <span>
           <svg class="news-svg">
-            <use xlink:href="../assets/img/svg-sprite.svg#menu6"></use>
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu6"></use>
           </svg>
         </span>
           <span>Новости</span>
         </button>
         <button>
-          <span>&hellip;</span>
+          <span class="dotted-icon"></span>
           <span>Еще</span>
         </button>
+        <!--=========кнопка Работа(с иконкой меч), Добыча и Курсы-->
+        <!-- //=====Работа===-->
+        <!-- button-->
+        <!-- 	span-->
+        <!-- 		svg.job2-svg-->
+        <!-- 			use(xlink:href="~~/assets/img/svg-sprite.svg#iconBatl")-->
+        <!-- 	span Работа-->
+        <!-- //=====Добыча===-->
+        <!-- button-->
+        <!-- 	span-->
+        <!-- 		svg.resourse-svg-->
+        <!-- 			use(xlink:href="~~/assets/img/svg-sprite.svg#iconResourse")-->
+        <!-- 	span Добыча-->
+        <!-- //=====Курсы===-->
+        <!-- button-->
+        <!-- 	span-->
+        <!-- 		svg.edu-svg-->
+        <!-- 			use(xlink:href="~~/assets/img/svg-sprite.svg#iconEdu")-->
+        <!-- 	span Курсы-->
       </div>
     </div>
     <!--===========DESKTOP HEADER========-->
@@ -114,7 +133,7 @@
           <div class="mobile-logo">
             <a href="#!">
               <svg width="42" height="24">
-                <use xlink:href="../assets/img/svg-sprite.svg#footer-logo"></use>
+                <use xlink:href="~~/assets/img/svg-sprite.svg#footer-logo"></use>
               </svg>
             </a>
           </div>
@@ -135,40 +154,23 @@
           <div class="header-menu">
             <ul>
               <li class="active">
-                <a href="#!">О проекте</a>
+                <a href="#!">Купить GINN</a>
               </li>
               <li>
-                <a href="#games-catalogy">Игры</a>
+                <a href="farm-reinvest.html">Farming</a>
               </li>
               <li>
-                <a href="#road-map">Road map</a>
+                <a href="#">Launchpad</a>
               </li>
               <li>
-                <a href="#tokenomic">Токеномика</a>
+                <a href="#">История операций</a>
               </li>
               <li>
-                <a href="#team">Команда</a>
-              </li>
-              <li>
-                <a href="#hoy-bay">Как купить GINN?</a>
-              </li>
-              <li>
-                <a href="#faq">Часты вопросы</a>
-              </li>
-              <li>
-                <nuxt-link to="/admin">Админка</nuxt-link>
+                <nuxt-link to="/new_sale_round">Новый инвест раунд</nuxt-link>
               </li>
             </ul>
           </div>
         </div>
-        <!--====LOGOUT=====-->
-        <!--.header-right
-          .login-block
-            .login-block__img
-              img(src="../assets/img/login.png", width="31" alt="alt")
-            button.login-btn(type="button" data-btn="logIn") Войти
-
-          -->
         <!--====LOGIN=====-->
         <div class="header-right">
           <div class="profile-panel">
@@ -179,18 +181,29 @@
                 </p>
               </div>
             </div>
+            <div class="header-icon">
+              <div class="icon-diamond"></div>
+              <p>15 500</p>
+            </div>
+            <div class="header-icon">
+              <div class="coin-icon"></div>
+              <p>2 500</p>
+            </div>
             <div class="profile-persone">
               <div class="profile-persone__img">
                 <img src="~~/assets/img/ava.png" width="38" alt="ava" />
               </div>
               <div class="profile-persone__arrow" id="profile-arrow">
                 <svg width="10" height="6">
-                  <use xlink:href="../assets/img/svg-sprite.svg#iconArr"></use>
+                  <use xlink:href="~~/assets/img/svg-sprite.svg#iconArr"></use>
                 </svg>
               </div>
               <div class="profile-persone__row">
                 <p>0x...263a</p>
               </div>
+            </div>
+            <div class="header-icon header-icon--plus">
+              <div class="plus-icon2"></div>
             </div>
           </div>
         </div>
@@ -200,45 +213,17 @@
     <header class="header header--mob">
       <div class="header-content d-flex">
         <div class="header-left">
-          <div class="mobile-logo">
-            <a href="#!">
-              <svg width="42" height="24">
-                <use xlink:href="../assets/img/svg-sprite.svg#footer-logo"></use>
-              </svg>
-            </a>
-            <!--======= выбор языка- продублировано для моб версии ==========-->
-            <div class="custom-select custom-select--lang">
-              <div class="select-icon"></div>
-              <div class="select-field">
-                <input type="text" value="Ru" readonly="readonly" />
-              </div>
-              <div class="select-list">
-                <ul>
-                  <li class="current" data-role="Ru">Ru</li>
-                  <li data-role="En">En</li>
-                </ul>
-              </div>
-            </div>
+          <div class="page-frame__header-text">
+            <a class="close-frame" href="farm-privat-mob.html"></a>
+            <div class="text-24">Фарминг</div>
           </div>
         </div>
-        <!--====LOGOUT=====-->
-        <!--.header-right
-          .login-block
-            .login-block__img
-              img(src="../assets/img/login.png", width="31" alt="alt")
-            button.login-btn(type="button" data-btn="logIn") Войти
-
-
-          -->
         <!--====LOGIN=====-->
         <div class="header-right">
           <div class="profile-panel">
-            <div class="profile-icon">
-              <div class="icon-notify">
-                <p class="label">
-                  <span>2</span>
-                </p>
-              </div>
+            <div class="header-icon">
+              <div class="coin-icon"></div>
+              <p>2 500</p>
             </div>
             <div class="profile-persone">
               <div class="profile-persone__img">
@@ -246,7 +231,7 @@
               </div>
               <div class="profile-persone__arrow" id="profile-arrow">
                 <svg width="10" height="6">
-                  <use xlink:href="../assets/img/svg-sprite.svg#iconArr"></use>
+                  <use xlink:href="~~/assets/img/svg-sprite.svg#iconArr"></use>
                 </svg>
               </div>
               <div class="profile-persone__row">

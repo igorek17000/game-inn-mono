@@ -51,7 +51,7 @@
                   <div class="badge badge--light">Открыт до 2 марта</div>
                 </div>
                 <div class="investrounds-card__body">
-                  <CustomButton v-if="isConnected" text="Инвестировать" @click="$router.push('/invest_round')"/>
+                  <CustomButton v-if="isConnected" text="Инвестировать" @click="$router.push('/new_invest_round')"/>
                   <CustomButton v-else text="Подключите Metamask" />
                   <div class="investrounds-card__col">
                     <div class="investrounds-info">
@@ -490,13 +490,13 @@
           <div class="investor-banner-content">
             <div class="investor-banner__img">
               <div class="investor-banner__laptop">
-                <img class="parallax-item1" src="img/investor/laptop.svg" width="142" alt="img" />
+                <img class="parallax-item1" src="../../assets/img/investor/laptop.svg" width="142" alt="img" />
               </div>
               <div class="investor-banner__chart">
-                <img class="parallax-item2" src="img/investor/chart.png" width="136" alt="img" />
+                <img class="parallax-item2" src="../../assets/img/investor/chart.png" width="136" alt="img" />
               </div>
               <div class="investor-banner__money">
-                <img class="parallax-item3" src="img/investor/money.png" width="121" alt="img" />
+                <img class="parallax-item3" src="../../assets/img/investor/money.png" width="121" alt="img" />
               </div>
             </div>
             <div class="investor-banner__header">

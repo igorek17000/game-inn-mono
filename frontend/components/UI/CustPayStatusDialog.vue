@@ -3,24 +3,31 @@
       v-model="orderInProgress"
       width="500"
   >
-    <v-card>
-      <ctm-modal-box
-          title="Order progress"
-          class="add-modal"
-          @close="closeDialog()"
-      >
-        <div class="add-modal-box flex-justify-center">
-          <div v-for="step in steps" class="stage-block">
-            <v-progress-circular
-                v-if="startedStage <= step && completedStage < step"
-                indeterminate
-                color="#7256ff"
-            ></v-progress-circular>
-            <img v-if="completedStage >= step" width="32" height="32" src="@/assets/img/success-jackdaw.svg" alt="completed stage">
+
+    <div class="pay-progress-wrapper" data-modal="payProgress" @click="closeDialog()">
+      <div class="page-modal pay-progress" @click.stop>
+        <div class="page-modal__header">
+          <div class="text-16">Подтверждаем транзакцию...</div>
+          <button class="close-btn" data-close="data-close" @click="closeDialog()">&#10006;</button>
+        </div>
+        <div class="page-modal__body">
+          <div class="pay-progress__list">
+            <div class="pay-progress-item">
+              <div class="pay-progress__icon"></div>
+              <div class="pay-progress__text">Отправили USDT</div>
+            </div>
+            <div class="pay-progress-item">
+              <div class="pay-progress__icon"></div>
+              <div class="pay-progress__text">Начисляем GINN..</div>
+            </div>
+            <div class="pay-progress-item">
+              <div class="pay-progress__icon"></div>
+              <div class="pay-progress__text">Создаем слот фарминга</div>
+            </div>
           </div>
         </div>
-      </ctm-modal-box>
-    </v-card>
+      </div>
+    </div>
   </v-dialog>
 </template>
 
