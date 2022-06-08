@@ -5,6 +5,7 @@
 @import "./modules/reset.css";
 @import "./modules/main.css";
 @import "./modules/styleAdmin.css";
+@import "./modules/new-page-sttyle.css";
 
 html body {
   background-color: #161616;
