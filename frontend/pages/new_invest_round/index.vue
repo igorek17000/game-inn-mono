@@ -65,7 +65,7 @@
                       </div>
                     </div>
                     <div class="farm-form-exchange">
-                      <p>1 GINN = $ 0,13750
+                      <p>1 GINN = $ {{ rate }}
                         <strike>$ 0,18333</strike>
                       </p>
                       <div class="badge badge--red">-25%</div>

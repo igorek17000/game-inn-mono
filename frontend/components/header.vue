@@ -165,9 +165,6 @@
               <li>
                 <a href="#">История операций</a>
               </li>
-              <li>
-                <nuxt-link to="/new_sale_round">Новый инвест раунд</nuxt-link>
-              </li>
             </ul>
           </div>
         </div>

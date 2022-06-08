@@ -80,7 +80,7 @@
                   <div class="badge badge--light">Начнется 10 июня</div>
                 </div>
                 <div class="investrounds-card__body">
-                  <CustomButton v-if="isConnected" text="Инвестировать" @click="$router.push('/sale_round')"/>
+                  <CustomButton v-if="isConnected" text="Инвестировать" @click="$router.push('/new_sale_round')"/>
                   <CustomButton v-else text="Подключите Metamask" />
                   <div class="investrounds-card__col">
                     <div class="investrounds-info">
