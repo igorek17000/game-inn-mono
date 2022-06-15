@@ -46,7 +46,12 @@
           <use xlink:href="../assets/img/svg-sprite.svg#asideLogo"></use>
         </svg>
       </nuxt-link>
-      <div class="aside-panel__menu">
+      <div class="aside-panel__menu"
+        v-gsap.from="{
+        opacity: 0,
+        y: '100%',
+        duration: 1.5,
+      }">
         <button>
         <span>
           <div class="label">
@@ -58,7 +63,7 @@
         </span>
           <span>Игры</span>
         </button>
-        <button>n
+        <button>
         <span>
           <svg class="job-svg">
             <use xlink:href="~~/assets/img/svg-sprite.svg#menu2"></use>
@@ -101,9 +106,13 @@
         </span>
           <span>Новости</span>
         </button>
-        <button>
-          <span class="dotted-icon"></span>
-          <span>Еще</span>
+        <button class="news-menu-item">
+        <span>
+          <svg class="news-svg">
+            <use xlink:href="~~/assets/img/svg-sprite.svg#menu6"></use>
+          </svg>
+        </span>
+          <span>Помощь</span>
         </button>
         <!--=========кнопка Работа(с иконкой меч), Добыча и Курсы-->
         <!-- //=====Работа===-->
@@ -127,7 +136,12 @@
       </div>
     </div>
     <!--===========DESKTOP HEADER========-->
-    <header class="header header--desk">
+    <header class="header header--desk"
+      v-gsap.from="{
+      opacity: 0,
+      y: -100,
+      duration: 1.5,
+    }">
       <div class="header-content d-flex">
         <div class="header-left">
           <div class="mobile-logo">
@@ -244,10 +258,42 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  // buildModules: ['nuxt-gsap-module'],
+  // gsap: {
+  //   extraPlugins: {
+  //     scrollTo: true,
+  //     scrollTrigger: true
+  //   },
+  // }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.aside-panel {
+  background: #fff;
+  padding-top: 0;
+  overflow: hidden;
+  .logo {
+    background: center / contain no-repeat url("~~/assets/img/logo-bg.png");
+    margin: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    position: relative;
+  }
+  &__menu {
+    span {
+      color: #3B4E6A;
+      z-index: 6;
+    }
 
+    svg {
+      fill: #9BADCA;
+    }
+  }
+}
 </style>
