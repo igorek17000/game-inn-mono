@@ -1,0 +1,40 @@
+name: GAME HOTEL MASTER
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'frontend/**'
+      - .github/workflows/main.yml
+
+jobs:
+  ci:
+    runs-on: [self-hosted]
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Cache node_modules
+        uses: actions/cache@v2.1.4
+        with:
+          path: ./frontend/node_modules
+          key: ${{ runner.os }}-node-frontend-${{ hashFiles('frontend/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-frontend-
+
+      - name: Install deps
+        run: yarn
+        working-directory: frontend/
+
+      - name: Add .env
+        run: cp /home/ubuntu/envs/prod.env frontend/.env
+
+      - name: Build static
+        run: yarn generate
+        working-directory: frontend/
+
+      - name: Remove previous static dir
+        run: sudo rm -rf /usr/share/nginx/gamehotel || true
+        
+      - name: Copy to static dir
+        run: sudo cp -r frontend/dist /usr/share/nginx/gamehotel  
