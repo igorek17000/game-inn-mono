@@ -1203,6 +1203,7 @@ svg.logo-svg {
     padding-left: 16px;
     padding-right: 16px;
     height: 44px;
+    min-width: 202px;
     line-height: 42px;
     font-size: 14px;
     background: transparent;
@@ -1298,6 +1299,12 @@ svg.logo-svg {
     background: #EEF5FF;
     color: #7256FF;
     border-color: #EEF5FF;
+}
+
+.button-green {
+    background: transparent;
+    color: #2D9858;
+    border-color: #D8E1EF;
 }
 
 .button-light svg {

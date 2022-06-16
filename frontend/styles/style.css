@@ -10,6 +10,7 @@
 html body {
   background-color: #161616;
   color: #000;
+  overflow-x: hidden;
 }
 
 html, body, .wrapper, #__nuxt, #__layout {

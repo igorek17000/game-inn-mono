@@ -789,6 +789,7 @@
   height: auto;
   max-height: unset;
   background-color: #fff;
+  margin-bottom: 20px;
 }
 .table--farming td {
   padding-top: 28px;
@@ -1653,6 +1654,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 35px;
 }
 .pay-progress .pay-progress__list {
   display: -webkit-box;
@@ -2138,7 +2140,7 @@
 
 .my-income-page.my-income-page--desktop {
   display: block;
-  z-index: -5;
+  z-index: 5;
 }
 .my-income-page.my-income-page--desktop.active {
   z-index: 8;
@@ -2151,7 +2153,7 @@
 
 .my-income-page.my-income-page--mobile {
   display: none;
-  z-index: -5;
+  z-index: 5;
   position: fixed;
   background-color: #fff;
 }

@@ -2,7 +2,6 @@
  <div class="wrapper">
    <Header />
    <nuxt />
-   <PortfolioBlock />
    <Footer />
    <CustomPayStatusDialog />
    <transition name="fade">
@@ -13,20 +12,15 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import globalMixins from "~/mixins/globalMixins";
+import CustomPayStatusDialog from '../components/CtmDialogs/CustPayStatusDialog'
 
 export default {
   name: "DefaultLayout",
   components: {
     Header: () => import('~~/components/header'),
     Footer: () => import('~~/components/footer'),
-    CustomPayStatusDialog: () => import('~~/components/CtmDialogs/CustPayStatusDialog'),
-    PortfolioBlock: () => import('~~/components/common/PortfolioBlock'),
     loader: () => import('~~/components/UI/loader'),
-  },
-  mixins: [globalMixins],
-  async mounted() {
-    this.UpdateMath();
+    CustomPayStatusDialog
   },
   computed: {
     ...mapGetters({
