@@ -1054,6 +1054,10 @@ svg.icon-edu {
     margin-bottom: 24px;
 }
 
+.aside-panel__menu {
+    height: 90%;
+}
+
 .aside-panel__menu button {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1151,7 +1155,9 @@ svg.icon-edu {
 }
 
 .aside-panel__menu button:last-child {
-    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .aside-panel__menu svg {
@@ -1161,8 +1167,18 @@ svg.icon-edu {
     transition: 0.2s;
 }
 
-.aside-panel__menu button:hover {
-    background-color: #5F45DE;
+.aside-panel__menu span {
+    -webkit-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.aside-panel__menu button:hover span {
+    color: #E857D1;
+}
+
+.aside-panel__menu button:hover svg {
+    fill: #E857D1;
 }
 
 .logo:hover {

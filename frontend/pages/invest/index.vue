@@ -10,7 +10,11 @@
           <div class="investrounds-left">
             <div class="investrounds-wrapper">
               <!--====одна карточка ======-->
-              <div class="investrounds-card">
+              <div class="investrounds-card"
+                v-gsap.fromTo="[
+                { opacity: 0, x: -250 },
+                { opacity: 1, x: 0, duration: 1 }
+              ]">
                 <div class="investrounds-card__header">
                   <div class="investrounds-card__title text-20">
                     <p>Стратегический раунд</p>
@@ -43,7 +47,11 @@
                 </div>
               </div>
               <!--==== Активная карточка: Именно наличие этого класса  active  меняет жирность текста и появляется слева от заголовка зеленая метка ======-->
-              <div class="investrounds-card active">
+              <div class="investrounds-card active"
+                v-gsap.fromTo="[
+                { opacity: 0, x: -250 },
+                { opacity: 1, x: 0, duration: 1.5 }
+              ]">
                 <div class="investrounds-card__header">
                   <div class="investrounds-card__title text-20">
                     <p>Раунд прямых инвестиций</p>
@@ -72,7 +80,11 @@
                 </div>
               </div>
               <!--====одна карточка ======-->
-              <div class="investrounds-card active">
+              <div class="investrounds-card active"
+                v-gsap.fromTo="[
+                { opacity: 0, x: -250 },
+                { opacity: 1, x: 0, duration: 2 }
+              ]">
                 <div class="investrounds-card__header">
                   <div class="investrounds-card__title text-20">
                     <p>Открытые продажи</p>
@@ -622,6 +634,11 @@ import MetamaskMixins from "~/mixins/MetamaskMixins";
 
 export default {
   name: "InvestPage",
+  methods: {
+    testClick(item) {
+      alert(item)
+    }
+  },
   components: {
     CustomButton: () => import('~~/components/UI/CustBtn')
   },
@@ -641,6 +658,7 @@ export default {
     }
   },
   async mounted() {
+    console.log('test', this.test2)
     this.SetLoader(false);
   },
 }

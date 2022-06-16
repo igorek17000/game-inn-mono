@@ -2,7 +2,11 @@
   <main class="farm-privat-page calc-height">
     <div class="farming-page-header farming-header--privat" v-if="$vuetify.breakpoint.mdAndUp">
       <div class="container">
-        <div class="farming-header">
+        <div class="farming-header"
+           v-gsap.fromTo="[
+          { opacity: 0, y: 250 },
+          { opacity: 1, y: 0, duration: 1 }
+        ]">
           <div class="farming-header__left">
             <div class="farming-header__badge">
               <div class="badge badge--black"> Открыт до 2 мая</div>
@@ -15,7 +19,7 @@
             <div class="farming-header__text">
               <p>Покупая GINN вы автоматически участвуете в распределении до 40% от суммы дохода с игрового майнинга в GameFi проектах.</p>
             </div>
-            <div class="farming-header__list">
+            <div class="farming-header__list">f
               <div class="farmin-text">
                 <p>Всего токенов продается</p>
                 <p>9 090 909 GINN</p>
@@ -539,12 +543,12 @@
     <!--====mining-games====-->
     <section class="mining-games">
       <div class="container">
-        <div class="section-title section-title--special">
+        <div class="section-title section-title--special animation-from-left">
           <span>GameFi проекты </span>
           <br /> в которых добываются игровые ценности
         </div>
         <div class="mining-games-cards">
-          <a class="game-card-short" href="#!">
+          <a class="game-card-short animation-from-right" href="#!">
             <div class="game-card-short__img">
               <img src="../../assets/img/games/axie.jpg" width="272" alt="img" />
             </div>
@@ -552,7 +556,7 @@
               <img src="../../assets/img/games/axie-logo.png" width="80" height="32" alt="alt" />
             </div>
           </a>
-          <a class="game-card-short" href="#!">
+          <a class="game-card-short animation-from-right" href="#!">
             <div class="game-card-short__img">
               <img src="../../assets/img/games/mechmaster.jpg" width="272" alt="img" />
             </div>
@@ -560,7 +564,7 @@
               <img src="../../assets/img/games/mechmaster-logo.png" width="80" height="32" alt="alt" />
             </div>
           </a>
-          <a class="game-card-short" href="#!">
+          <a class="game-card-short animation-from-right" href="#!">
             <div class="game-card-short__img">
               <img src="../../assets/img/games/ember.jpg" width="272" alt="img" />
             </div>
@@ -568,7 +572,7 @@
               <img src="../../assets/img/games/ember-logo.png" width="80" height="32" alt="alt" />
             </div>
           </a>
-          <a class="game-card-short" href="#!">
+          <a class="game-card-short animation-from-right" href="#!">
             <div class="game-card-short__img">
               <img src="../../assets/img/games/fara.jpg" width="272" alt="img" />
             </div>
@@ -905,7 +909,7 @@ export default {
     ClaimDialog: () => import('~~/components/UI/ClaimDialog'),
     InvestPageTable: () => import('~/components/UI/InvestPageTable')
   },
-  async mounted() {
+  mounted() {
     this.UpdateMath();
   },
   computed: {

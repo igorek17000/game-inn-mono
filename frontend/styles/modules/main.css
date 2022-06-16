@@ -1065,6 +1065,9 @@ svg.icon-edu {
   display: block;
   width: 37px;
   margin-bottom: 24px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .aside-panel__menu button {
@@ -1163,19 +1166,11 @@ svg.icon-edu {
   width: fit-content;
 }
 
-.aside-panel__menu button:last-child {
-  display: none;
-}
-
 .aside-panel__menu svg {
   fill: #fff;
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
-}
-
-.aside-panel__menu button:hover {
-  background-color: #5F45DE;
 }
 
 .logo:hover {

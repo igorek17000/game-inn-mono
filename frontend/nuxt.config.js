@@ -9,6 +9,47 @@ export default {
   //   port: 3000,
   //   host: '0.0.0.0',
   // },
+  gsap: {
+    extraPlugins: {
+      scrollTo: true,
+      scrollTrigger: true
+    },
+    extraEases: {
+      expoScaleEase: true
+    },
+  },
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+    css: false,
+
+    beforeEnter(el) {
+      this.$gsap.set(el, {
+        opacity: 0,
+        background: '#fff',
+      })
+    },
+
+    enter(el, done) {
+      this.$gsap.to(el, {
+        opacity: 1,
+        duration: 0.5,
+        background: '#fff',
+        ease: 'power2.inOut',
+        onComplete: done
+      })
+    },
+
+    leave(el, done) {
+      this.$gsap.to(el, {
+        opacity: 0,
+        duration: 0.5,
+        background: '#fff',
+        ease: 'power2.inOut',
+        onComplete: done
+      })
+    }
+  },
   head: {
     title: 'GameInn',
     meta: [
@@ -29,10 +70,12 @@ export default {
   plugins: [
     { src: '@plugins/axios.js' },
     { src: '@plugins/main.js' },
+    { src: '@plugins/animations.js' },
   ],
   components: true,
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
+    'nuxt-gsap-module',
     '@nuxtjs/eslint-module',
     '@nuxtjs/dotenv',
     '@nuxtjs/vuetify',
