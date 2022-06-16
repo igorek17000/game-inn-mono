@@ -48,7 +48,7 @@ import MetamaskMixins from "~/mixins/MetamaskMixins";
 export default {
   name: "ClaimDialog",
   components: {
-    "ctm-modal-box": () => import('./CtmModalBox')
+    "ctm-modal-box": () => import('../UI/CtmModalBox')
   },
   mixins: [MetamaskMixins],
   data() {
@@ -65,20 +65,11 @@ export default {
     }),
   },
   methods: {
-    toBigNumber(val, decimal) {
-      return BigNumber.from(val).mul(BigNumber.from(10).pow(BigNumber.from(decimal)))
-    },
     toggleDialog(id) {
       this.roundId = id ?? null;
       this.address = '';
       this.amount = null;
       this.dialog = !this.dialog;
-    },
-    async setDefaultDialog() {
-      await this.$store.dispatch('modals/setStartedStage', 1);
-      await this.$store.dispatch('modals/setCompletedStage', 0);
-      await this.$store.dispatch('modals/setOrderInProgress', false);
-      await this.$store.dispatch('modals/setStepsCount', 1);
     },
     async claim() {
       try {

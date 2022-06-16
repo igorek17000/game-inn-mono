@@ -78,19 +78,6 @@ export default {
       this.$emit('toggle', id);
     },
   },
-  filters: {
-    filterAmount(value) {
-      if (!value) return ''
-      const s = value.toString().length;
-      const chars = value.toString().split('');
-      const strWithSpaces = chars.reduceRight((acc, char, i) => {
-        const spaceOrNothing = ((((s - i) % 3) === 0) ? ' ' : '');
-        return (spaceOrNothing + char + acc);
-      }, '');
-
-      return ((strWithSpaces[0] === ' ') ? strWithSpaces.slice(1) : strWithSpaces);
-    }
-  }
 }
 </script>
 

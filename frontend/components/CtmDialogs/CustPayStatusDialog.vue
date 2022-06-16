@@ -12,15 +12,15 @@
         </div>
         <div class="page-modal__body">
           <div class="pay-progress__list">
-            <div class="pay-progress-item">
+            <div class="pay-progress-item" v-if="completedStage === 0">
               <div class="pay-progress__icon"></div>
               <div class="pay-progress__text">Отправили USDT</div>
             </div>
-            <div class="pay-progress-item">
+            <div class="pay-progress-item" v-if="completedStage === 1">
               <div class="pay-progress__icon"></div>
               <div class="pay-progress__text">Начисляем GINN..</div>
             </div>
-            <div class="pay-progress-item">
+            <div class="pay-progress-item" v-if="completedStage === 2">
               <div class="pay-progress__icon"></div>
               <div class="pay-progress__text">Создаем слот фарминга</div>
             </div>
@@ -37,7 +37,7 @@ import {mapGetters} from "vuex";
 export default {
   name: "CustPayStatusDialog",
   components: {
-    "ctm-modal-box": () => import('./CtmModalBox')
+    "ctm-modal-box": () => import('../UI/CtmModalBox')
   },
   computed: {
     ...mapGetters({

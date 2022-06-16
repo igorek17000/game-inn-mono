@@ -171,7 +171,7 @@
                 <a href="#!">Купить GINN</a>
               </li>
               <li>
-                <a href="farm-reinvest.html">Farming</a>
+                <nuxt-link to="/farm">Farming</nuxt-link>
               </li>
               <li>
                 <a href="#">Launchpad</a>
@@ -225,8 +225,10 @@
       <div class="header-content d-flex">
         <div class="header-left">
           <div class="page-frame__header-text">
-            <a class="close-frame" href="farm-privat-mob.html"></a>
-            <div class="text-24">Фарминг</div>
+            <nuxt-link to="/" class="close-frame"></nuxt-link>
+            <nuxt-link to="/farm" class="close-frame">
+              <div class="text-24">Фарминг</div>
+            </nuxt-link>
           </div>
         </div>
         <!--====LOGIN=====-->
