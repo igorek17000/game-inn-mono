@@ -252,8 +252,8 @@ export default {
   },
   mixins: [MetamaskMixins],
   components: {
-    ClaimDialog: () => import('~~/components/UI/ClaimDialog'),
-    InvestPageTable: () => import('~/components/UI/InvestPageTable')
+    ClaimDialog: () => import('~/components/CtmDialogs/ClaimDialog'),
+    InvestPageTable: () => import('~/components/common/InvestPageTable')
   },
   computed: {
     ...mapGetters({
@@ -275,9 +275,6 @@ export default {
     openDialog(id) {
       this.$refs.claimDialog.toggleDialog(id);
     },
-    toBigNumber(val, decimal) {
-      return BigNumber.from(val).mul(BigNumber.from(10).pow(BigNumber.from(decimal)))
-    },
     bigAmount(amount) {
       return this.toBigNumber(Math.floor(amount), 18).toString()
     },
@@ -297,12 +294,6 @@ export default {
         this.USDTToken = input;
         this.GINNToken = `${Math.round(input / this.rate)}`;
       }
-    },
-    async setDefaultDialog() {
-      await this.$store.dispatch('modals/setStartedStage', 1);
-      await this.$store.dispatch('modals/setCompletedStage', 0);
-      await this.$store.dispatch('modals/setOrderInProgress', false);
-      await this.$store.dispatch('modals/setStepsCount', 1);
     },
     async actions(val, payload = {}) {
       let { id, status } = payload;

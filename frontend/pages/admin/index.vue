@@ -26,8 +26,8 @@ export default {
   name: "AdminPage",
   components: {
     CustomButton: () => import('~~/components/UI/CustBtn'),
-    ClaimDialog: () => import('~~/components/UI/ClaimDialog'),
-    CustTable: () => import('~/components/UI/AdminPageTable')
+    ClaimDialog: () => import('~/components/CtmDialogs/ClaimDialog'),
+    CustTable: () => import('~/components/common/AdminPageTable')
   },
   computed: {
     ...mapGetters({
@@ -56,16 +56,9 @@ export default {
     }
   },
   async mounted() {
-    this.UpdateMath();
     this.SetLoader(false);
   },
   methods: {
-    toBigNumber(val, decimal) {
-      return BigNumber.from(val).mul(BigNumber.from(10).pow(BigNumber.from(decimal)))
-    },
-    getAmount(amount) {
-      return Math.round10(amount * 10e-19, -4) || 0;
-    },
     openDialog(id) {
       this.$refs.claimDialog.toggleDialog(id);
     },

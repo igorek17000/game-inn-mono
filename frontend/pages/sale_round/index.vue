@@ -117,9 +117,6 @@ export default {
     }),
   },
   methods: {
-    toBigNumber(val, decimal) {
-      return BigNumber.from(val).mul(BigNumber.from(10).pow(BigNumber.from(decimal)))
-    },
     buyGINNToken(val) {
       let input = val.target.value;
       if (Math.sign(input) === 1) {
@@ -133,12 +130,6 @@ export default {
         this.USDTToken = input;
         this.GINNToken = `${Math.round(input / this.rate)}`;
       }
-    },
-    async setDefaultDialog() {
-      await this.$store.dispatch('modals/setStartedStage', 1);
-      await this.$store.dispatch('modals/setCompletedStage', 0);
-      await this.$store.dispatch('modals/setOrderInProgress', false);
-      await this.$store.dispatch('modals/setStepsCount', 1);
     },
     async buyWithUSDT() {
       await this.$store.dispatch('modals/setOrderInProgress', true);

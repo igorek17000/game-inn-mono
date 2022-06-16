@@ -60,7 +60,7 @@
                 </div>
                 <div class="investrounds-card__body">
                   <CustomButton v-if="isConnected" text="Инвестировать" @click="$router.push('/new_invest_round')"/>
-                  <CustomButton v-else text="Подключите Metamask" />
+                  <CustomButton v-else text="Подключите Metamask" @click="tryConnect"/>
                   <div class="investrounds-card__col">
                     <div class="investrounds-info">
                       <div class="info-item">
@@ -93,7 +93,7 @@
                 </div>
                 <div class="investrounds-card__body">
                   <CustomButton v-if="isConnected" text="Инвестировать" @click="$router.push('/new_sale_round')"/>
-                  <CustomButton v-else text="Подключите Metamask" />
+                  <CustomButton v-else text="Подключите Metamask" @click="tryConnect"/>
                   <div class="investrounds-card__col">
                     <div class="investrounds-info">
                       <div class="info-item">
@@ -119,16 +119,18 @@
             <!--======карточка баланса =====-->
             <div class="balance-card">
               <div class="balance-card-top">
-                <div class="text-14 text-grey">Баланс</div>
-                <div class="balance-card__value text-24">
-                  <p>{{ getRoundBalance }} GINN</p>
-                  <img src="~~/assets/img/goldlogo.png" width="32" alt="alt" />
-                </div>
+                <svg width="50" height="50">
+                  <use xlink:href="~~/assets/img/svg-sprite.svg#metam2Icon"></use>
+                </svg>
               </div>
               <div class="balance-card-body">
-                <button class="button button--flex button-light" data-btn="mm-wallet" @click="tryConnect">
-                  <svg width="20" height="20">
-                    <use xlink:href="~~/assets/img/svg-sprite.svg#metam2Icon"></use>
+                <button v-if="!isConnected" class="button button--flex button-light" data-btn="mm-wallet" @click="tryConnect">
+                  <span>Подключить Metamask</span>
+                </button>
+                <button v-else class="button button--flex button-green" data-btn="mm-wallet">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10.0001" cy="10.0001" r="8.33333" fill="#2D9858"/>
+                    <path d="M15.625 6.8749L8.125 14.3749L4.6875 10.9374L5.56875 10.0562L8.125 12.6062L14.7437 5.99365L15.625 6.8749Z" fill="white"/>
                   </svg>
                   <span>Подключить Metamask</span>
                 </button>
@@ -634,11 +636,7 @@ import MetamaskMixins from "~/mixins/MetamaskMixins";
 
 export default {
   name: "InvestPage",
-  methods: {
-    testClick(item) {
-      alert(item)
-    }
-  },
+  layout: 'home',
   components: {
     CustomButton: () => import('~~/components/UI/CustBtn')
   },
@@ -658,7 +656,6 @@ export default {
     }
   },
   async mounted() {
-    console.log('test', this.test2)
     this.SetLoader(false);
   },
 }
