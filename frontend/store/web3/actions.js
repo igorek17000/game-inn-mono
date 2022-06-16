@@ -7,74 +7,102 @@ import * as abi from '~/abis';
 
 export default {
   async connect({ commit, dispatch }) {
-    const response = await initWeb3();
-    if (response.ok) {
-      await commit('setAccount', response.result);
-      await commit('setIsConnected', true);
-    } else {
-      console.log('Web3 connect error', response);
-      commit('setIsConnected', false);
+    try {
+      const response = await initWeb3();
+      if (response.ok) {
+        await commit('setAccount', response.result);
+        await commit('setIsConnected', true);
+      } else {
+        console.log('Web3 connect error', response);
+        commit('setIsConnected', false);
+      }
+    } catch (e) {
+      console.log('connect', e)
     }
   },
   async initGINNContract({ commit }) {
-    const [abs, address] = [abi.GINN_ABI, process.env.GINN_TOKEN];
-    const instance = await initWeb3Contract(abs, address);
+    try {
+      const [abs, address] = [abi.GINN_ABI, process.env.GINN_TOKEN];
+      const instance = await initWeb3Contract(abs, address);
 
-    const decimals = +await instance.methods.decimals().call()
+      const decimals = +await instance.methods.decimals().call()
 
-    const payload = {
-      address,
-      instance,
-      decimals
-    };
-    commit('setGINNToken', payload);
+      const payload = {
+        address,
+        instance,
+        decimals
+      };
+      commit('setGINNToken', payload);
+    } catch (e) {
+      console.log('initGINNContract', e)
+    }
   },
   async initBUSDContract({ commit }) {
-    const [abs, address] = [abi.BUSDabi, process.env.BUSD_TOKEN];
-    const instance = await initWeb3Contract(abs, address);
+    try {
+      const [abs, address] = [abi.BUSDabi, process.env.BUSD_TOKEN];
+      const instance = await initWeb3Contract(abs, address);
 
-    const decimals = +await instance.methods.decimals().call()
+      const decimals = +await instance.methods.decimals().call()
 
-    const payload = {
-      address,
-      instance,
-      decimals
-    };
-    commit('setBUSDToken', payload);
+      const payload = {
+        address,
+        instance,
+        decimals
+      };
+      commit('setBUSDToken', payload);
+    } catch (e) {
+      console.log('initBUSDContract', e)
+    }
   },
   async initPrivateWallet({ commit }) {
-    const [abs, address] = [abi.PrivateAbi, process.env.PRIVATE_CONTRACT];
-    const instance = await initWeb3Contract(abs, address);
+    try {
+      const [abs, address] = [abi.PrivateAbi, process.env.PRIVATE_CONTRACT];
+      const instance = await initWeb3Contract(abs, address);
 
-    const payload = {
-      address,
-      instance,
-    };
-    commit('setPrivateToken', payload);
+      const payload = {
+        address,
+        instance,
+      };
+      commit('setPrivateToken', payload);
+    } catch (e) {
+      console.log('initPrivateWallet', e)
+    }
   },
   async initPublicWallet({ commit }) {
-    const [abs, address] = [abi.PublicAbi, process.env.PUBLIC_CONTRACT];
-    const instance = await initWeb3Contract(abs, address);
+    try {
+      const [abs, address] = [abi.PublicAbi, process.env.PUBLIC_CONTRACT];
+      const instance = await initWeb3Contract(abs, address);
 
-    const payload = {
-      address,
-      instance,
-    };
-    commit('setPublicToken', payload);
+      const payload = {
+        address,
+        instance,
+      };
+      commit('setPublicToken', payload);
+    } catch (e) {
+      console.log('initPublicWallet', e)
+    }
   },
   async initAdminWalletContract({ commit }) {
-    const [abs, address] = [abi.AdminWalletAbi, process.env.ADMIN_WALLET];
-    const instance = await initWeb3Contract(abs, address);
+    try {
+      const [abs, address] = [abi.AdminWalletAbi, process.env.ADMIN_WALLET];
+      const instance = await initWeb3Contract(abs, address);
 
-    const payload = {
-      address,
-      instance,
-    };
-    commit('setAdminWalletContract', payload);
+      const payload = {
+        address,
+        instance,
+      };
+      commit('setAdminWalletContract', payload);
+    } catch (e) {
+      console.log('initAdminWalletContract', e)
+    }
   },
   async getGINNBalance({commit}, { instance, address }) {
-    const result = await instance.methods.balanceOf(address).call();
-    commit('setGINNBalance', web3.utils.fromWei(result));
+    try {
+      const result = await instance.methods.balanceOf(address).call();
+      commit('setGINNBalance', web3.utils.fromWei(result));
+    } catch (e) {
+      console.log('getGINNBalance', e)
+    }
   },
   async getStacks({commit}, { instance, address }) {
     try {

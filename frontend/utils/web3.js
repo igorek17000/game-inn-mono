@@ -52,38 +52,69 @@ export const signTrx = async (amount, address) => {
 };
 export const initWeb3 = async () => {
   try {
-    if (initOnboard === null) await onboardV2();
-    let selectStatus = await initOnboard.connectWallet();
-    await initOnboard.setChain({
-      chainId: '0x61'
-    });
+    if (typeof window.ethereum !== 'undefined') {
+      try {
+        await window.ethereum.send('eth_requestAccounts');
+        web3 = new Web3(window.ethereum)
+        await switchChain();
 
-    if (selectStatus) {
-      account = {
-        address: selectStatus[0].accounts[0].address,
-      };
+        account = {
+          address: await web3.eth.getCoinbase(),
+        };
 
-      web3 = new Web3(window.ethereum)
-
-      return success(account);
-    } else return error(404, 'Connection select fail');
+        return success(account);
+      } catch (error) {
+        console.log('User denied web3 access', error);
+        return error(404, 'Connection select fail')
+      }
+    }
+    else {
+      console.error('No web3 provider detected');
+    }
   } catch (err) {
     web3 = undefined;
-    localStorage.removeItem('walletconnect');
-    return error(500, '', err.message);
+    console.log('initWeb3', err)
   }
 };
 
+export const switchChain = async () => {
+  const CHAIN_NAME = process.env.CHAIN_NAME;
+  const CHAIN_CURRENCY = process.env.CHAIN_CURRENCY;
+  const CHAIN_DECIMALS = process.env.CHAIN_DECIMALS;
+  const CHAIN_RPC = process.env.CHAIN_RPC;
+  const NETWORK_ID = process.env.CHAIN_NETWORK_ID;
+
+  if (window.ethereum.networkVersion !== NETWORK_ID) {
+    try {
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: web3.utils.toHex(NETWORK_ID) }]
+      });
+    } catch (err) {
+      // This error code indicates that the chain has not been added to MetaMask
+      if (err.code === 4902) {
+        await window.ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [
+            {
+              chainName: CHAIN_NAME,
+              chainId: web3.utils.toHex(NETWORK_ID),
+              nativeCurrency: { name: CHAIN_CURRENCY, decimals: CHAIN_DECIMALS, symbol: CHAIN_CURRENCY },
+              rpcUrls: [CHAIN_RPC]
+            }
+          ]
+        });
+      }
+    }
+  }
+}
+
 // export const onboard = async () => {
 //   const BLOCKNATIVE_KEY = process.env.BLOCKNATIVE_KEY;
-//   const FORTMATIC_KEY = process.env.FORTMATIC_KEY;
 //   const NETWORK_ID = process.env.NETWORK_ID;
 //
 //   const wallets = [
 //     { walletName: "metamask", preferred: true },
-//     { walletName: 'coinbase', preferred: true },
-//     { walletName: 'binance', preferred: true },
-//     { walletName: "fortmatic", apiKey: FORTMATIC_KEY, preferred: true },
 //     // {
 //     //   walletName: "walletConnect",
 //     //   rpc: {
@@ -108,32 +139,29 @@ export const initWeb3 = async () => {
 //   });
 // }
 
-export const onboardV2 = async () => {
-  const FORTMATIC_KEY = process.env.FORTMATIC_KEY;
-
-  const injected = injectedModule();
-  const fortmatic = fortmaticModule({ apiKey: FORTMATIC_KEY })
-
-  initOnboard = Onboardv2({
-    wallets: [injected, fortmatic],
-    chains: [
-      {
-        id: '0x61',
-        token: 'BNB',
-        label: 'Smart Chain - Testnet',
-        rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
-      },
-    ],
-    appMetadata: {
-      name: 'Game Hotel',
-      icon: '../favicon.svg',
-      description: 'Game Hotel using Onboard',
-      recommendedInjectedWallets: [
-        { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
-        { name: 'MetaMask', url: 'https://metamask.io' }
-      ]
-    }
-  })
-}
+// export const onboardV2 = async () => {
+//   const injected = injectedModule();
+//
+//   initOnboard = Onboardv2({
+//     wallets: [injected],
+//     chains: [
+//       {
+//         id: '0x61',
+//         token: 'BNB',
+//         label: 'Smart Chain - Testnet',
+//         rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+//       },
+//     ],
+//     appMetadata: {
+//       name: 'Game Hotel',
+//       icon: '../favicon.svg',
+//       description: 'Game Hotel using Onboard',
+//       recommendedInjectedWallets: [
+//         { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },
+//         { name: 'MetaMask', url: 'https://metamask.io' }
+//       ]
+//     }
+//   })
+// }
 
 export const getAccount = () => account;

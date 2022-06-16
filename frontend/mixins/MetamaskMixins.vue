@@ -13,8 +13,8 @@ export default {
   methods: {
     async tryConnect() {
       try {
-        await this.ConnectToMetamask();
         this.SetLoader(true);
+        await this.ConnectToMetamask();
         if(this.isConnected) {
           await this.getContractsData();
         }
@@ -41,6 +41,12 @@ export default {
           instance: this.tokens.AdminWalletContract.instance,
         }),
       ]);
+    },
+    async setDefaultDialog() {
+      await this.$store.dispatch('modals/setStartedStage', 1);
+      await this.$store.dispatch('modals/setCompletedStage', 0);
+      await this.$store.dispatch('modals/setOrderInProgress', false);
+      await this.$store.dispatch('modals/setStepsCount', 1);
     },
   }
 }
