@@ -18,7 +18,7 @@ jobs:
         uses: actions/cache@v2.1.4
         with:
           path: ./frontend/node_modules
-          key: ${{ runner.os }}-node-frontend-${{ hashFiles('frontend/package-lock.json') }}
+          key: ${{ runner.os }}-node-frontend-${{ hashFiles('frontend/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-frontend-
 
@@ -30,7 +30,7 @@ jobs:
         run: cp /home/ubuntu/envs/prod.env frontend/.env
 
       - name: Build static
-        run: NODE_OPTIONS=--openssl-legacy-provider yarn generate
+        run: yarn generate
         working-directory: frontend/
 
       - name: Remove previous static dir
